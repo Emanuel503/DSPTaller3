@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="registroEnviosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="empleado">
+    <Key>
+      <PropertyRef Name="idEmpleado" />
+    </Key>
+    <Property Name="idEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar(max)" Nullable="false" />
+    <Property Name="documento" Type="varchar(max)" Nullable="false" />
+    <Property Name="fechaNacimiento" Type="varchar(max)" Nullable="false" />
+    <Property Name="correo" Type="varchar(max)" Nullable="false" />
+    <Property Name="areaTrabajo" Type="varchar(max)" Nullable="false" />
+    <Property Name="sueldo" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="horario">
+    <Key>
+      <PropertyRef Name="idHorario" />
+    </Key>
+    <Property Name="idHorario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar(max)" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="costoHoraNormal" Type="float" Nullable="false" />
+    <Property Name="costoHoraExtra" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="horarioEmpleado">
+    <Key>
+      <PropertyRef Name="idHorarioEmpleado" />
+    </Key>
+    <Property Name="idHorarioEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpleado" Type="int" />
+    <Property Name="idHorario" Type="int" />
+    <Property Name="mes" Type="varchar(max)" Nullable="false" />
+    <Property Name="ano" Type="varchar(max)" Nullable="false" />
+    <Property Name="semanaMes" Type="varchar(max)" Nullable="false" />
+    <Property Name="horaExtraTrabajadas" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__horarioEm__idEmp__3A81B327">
+    <End Role="empleado" Type="Self.empleado" Multiplicity="0..1" />
+    <End Role="horarioEmpleado" Type="Self.horarioEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleado">
+        <PropertyRef Name="idEmpleado" />
+      </Principal>
+      <Dependent Role="horarioEmpleado">
+        <PropertyRef Name="idEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__horarioEm__idHor__3B75D760">
+    <End Role="horario" Type="Self.horario" Multiplicity="0..1" />
+    <End Role="horarioEmpleado" Type="Self.horarioEmpleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="horario">
+        <PropertyRef Name="idHorario" />
+      </Principal>
+      <Dependent Role="horarioEmpleado">
+        <PropertyRef Name="idHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="registroEnviosModelStoreContainer">
+    <EntitySet Name="empleado" EntityType="Self.empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="horario" EntityType="Self.horario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="horarioEmpleado" EntityType="Self.horarioEmpleado" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__horarioEm__idEmp__3A81B327" Association="Self.FK__horarioEm__idEmp__3A81B327">
+      <End Role="empleado" EntitySet="empleado" />
+      <End Role="horarioEmpleado" EntitySet="horarioEmpleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__horarioEm__idHor__3B75D760" Association="Self.FK__horarioEm__idHor__3B75D760">
+      <End Role="horario" EntitySet="horario" />
+      <End Role="horarioEmpleado" EntitySet="horarioEmpleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

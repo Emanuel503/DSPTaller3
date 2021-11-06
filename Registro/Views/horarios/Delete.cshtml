@@ -1,0 +1,55 @@
+﻿@model Registro.Models.horario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar horario</h2>
+
+<h3>Estas segunro que quieres eliminar este horario?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Tipo de horario:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+        <dt>
+           Cantidad de horas:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+           Costo de hora normal:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoHoraNormal)
+        </dd>
+
+        <dt>
+            Costo de hora extra:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoHoraExtra)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-default" })
+</div>
+    }
+</div>

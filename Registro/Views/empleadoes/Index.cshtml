@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Registro.Models.empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Registro de empleados</h2><br />
+
+<p>
+    @Html.ActionLink("Nuevo empleado", "Create",null, new { @class = "btn btn-primary" })
+</p><br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            Nombre completo
+        </th>
+        <th>
+          N° de documento
+        </th>
+        <th>
+            Fecha de nacimiento
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>
+            Area de trabajo
+        </th>
+        <th>
+            Sueldo
+        </th>
+        <th>
+            Opciones
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.documento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.areaTrabajo)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.sueldo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idEmpleado },new { @class = "btn btn-primary" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.idEmpleado },new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idEmpleado },new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

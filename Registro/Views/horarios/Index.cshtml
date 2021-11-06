@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Registro.Models.horario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Registro de horarios</h2><br />
+
+<p>
+    @Html.ActionLink("Nuevo horario", "Create", null, new { @class = "btn btn-primary" })
+</p><br />
+<h4>Horarios registrados</h4>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+           Tipo de horario
+        </th>
+        <th>
+           Cantidad de horas semanales
+        </th>
+        <th>
+            Costo hora normal
+        </th>
+        <th>
+          Costo hora extra
+        </th>
+        <th>
+            Opciones
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.costoHoraNormal)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.costoHoraExtra)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idHorario },new { @class = "btn btn-primary" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.idHorario }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idHorario }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

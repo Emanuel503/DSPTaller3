@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="registroEnviosModelStoreContainer" CdmEntityContainer="registroEnviosEntities">
+    <EntitySetMapping Name="empleado">
+      <EntityTypeMapping TypeName="registroEnviosModel.empleado">
+        <MappingFragment StoreEntitySet="empleado">
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="areaTrabajo" ColumnName="areaTrabajo" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="horario">
+      <EntityTypeMapping TypeName="registroEnviosModel.horario">
+        <MappingFragment StoreEntitySet="horario">
+          <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="costoHoraNormal" ColumnName="costoHoraNormal" />
+          <ScalarProperty Name="costoHoraExtra" ColumnName="costoHoraExtra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="horarioEmpleado">
+      <EntityTypeMapping TypeName="registroEnviosModel.horarioEmpleado">
+        <MappingFragment StoreEntitySet="horarioEmpleado">
+          <ScalarProperty Name="idHorarioEmpleado" ColumnName="idHorarioEmpleado" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+          <ScalarProperty Name="mes" ColumnName="mes" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="semanaMes" ColumnName="semanaMes" />
+          <ScalarProperty Name="horaExtraTrabajadas" ColumnName="horaExtraTrabajadas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
