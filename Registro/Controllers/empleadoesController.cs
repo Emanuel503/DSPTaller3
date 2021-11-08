@@ -10,7 +10,7 @@ using Registro.Models;
 
 namespace Registro.Controllers
 {
-    public class  empleadoesController : Controller
+    public class empleadoesController : Controller
     {
         private registroEnviosEntities db = new registroEnviosEntities();
 
