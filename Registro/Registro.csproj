@@ -229,6 +229,7 @@
     <Content Include="Views\horarioEmpleadoes\Edit.cshtml" />
     <Content Include="Views\horarioEmpleadoes\Index.cshtml" />
     <Content Include="Views\Home\PagoSemanal.cshtml" />
+    <Content Include="Views\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

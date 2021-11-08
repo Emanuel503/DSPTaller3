@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Registro.Models.empleado>
+
+<div>
+    <h4>empleado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+  
+
+        <dt>
+            @Html.DisplayNameFor(model => model.documento)
+        </dt>
+
+  
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaNacimiento)
+        </dt>
+
+  
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+     
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.areaTrabajo)
+        </dt>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldo)
+        </dt>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEmpleado }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

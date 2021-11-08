@@ -1,9 +1,9 @@
-﻿
-@{
-    ViewBag.Title = "PagoSemanal";
-}
+﻿@model IEnumerable<Registro.Models.empleado>
 
-<h2>Registro de pago por semana</h2><br />
+@{ ViewBag.Title = "PagoSemanal"; }
+
+<h2>Información de pagos semanales</h2>
+<br />
 
 <table class="table table-bordered table-striped">
     <tr>
@@ -14,13 +14,13 @@
             Sueldo base
         </th>
         <th>
-            Tipo de hora
+            Tipo de horario
         </th>
         <th>
             Horas normal trabajadas
         </th>
         <th>
-           Horas extras trabajadas
+            Horas extras trabajadas
         </th>
         <th>
             N° de semana
@@ -30,6 +30,30 @@
         </th>
     </tr>
 
+ @foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        $@Html.DisplayFor(modelItem => item.sueldo)
+    </td>
+     <td>
+        @Html.DisplayFor(modelItem => item.horarioEmpleado.horario.tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.horario.cantidad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.horarioEmpleado.horaExtraTrabajadas)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.horarioEmpleado.semanaMes)
+    </td>
+    <td>
+        $@Html.DisplayFor(modelItem => item.pago)
+    </td>
+</tr>
+    }
+
 </table>
-
-

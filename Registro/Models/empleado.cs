@@ -50,4 +50,26 @@ namespace Registro.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<horarioEmpleado> horarioEmpleado { get; set; }
     }
+    public class pago
+    {
+        public int horaExtraTrabajadas { get; set; }
+        public float costoHoraNormal { get; set; }
+        public float costoHoraExtra { get; set; }
+        public int cantidad { get; set; }
+
+        public float Total1
+        {
+            get { return costoHoraNormal * cantidad; }
+        }
+
+        public float Total2
+        {
+            get { return costoHoraExtra * horaExtraTrabajadas; }
+        }
+        public float Total
+        {
+            get { return Total1 + Total2; }
+        }
+    }
+
 }
